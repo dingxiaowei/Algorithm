@@ -45,5 +45,26 @@ namespace Algorithm
                 QuickSort(ref nums, i + 1, right);
             }
         }
+
+        /// <summary>
+        /// 冒泡排序
+        /// </summary>
+        /// <param name="nums"></param>
+        public static void BubbleSort(ref List<int> nums)
+        {
+            int length = nums.Count;
+            for (int i = 0; i < length - 1; i++)
+            {
+                for (int j = i + 1; j < length; j++)
+                {
+                    if (nums[i] > nums[j])
+                    {
+                        nums[i] = nums[i] + nums[j];
+                        nums[j] = nums[i] - nums[j];
+                        nums[i] = nums[i] - nums[j];
+                    }
+                }
+            }
+        }
     }
 }
