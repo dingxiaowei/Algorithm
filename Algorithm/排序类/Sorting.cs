@@ -50,18 +50,37 @@ namespace Algorithm
         /// 冒泡排序
         /// </summary>
         /// <param name="nums"></param>
-        public static void BubbleSort(ref List<int> nums)
+        /// <param name="isUp">是否是升序</param>
+        public static void BubbleSort(ref List<int> nums, bool isUp = true)
         {
             int length = nums.Count;
-            for (int i = 0; i < length - 1; i++)
+            if (isUp)
             {
-                for (int j = i + 1; j < length; j++)
+                for (int i = 0; i < length - 1; i++)
                 {
-                    if (nums[i] > nums[j])
+                    for (int j = i + 1; j < length; j++)
                     {
-                        nums[i] = nums[i] + nums[j];
-                        nums[j] = nums[i] - nums[j];
-                        nums[i] = nums[i] - nums[j];
+                        if (nums[i] > nums[j])
+                        {
+                            nums[i] = nums[i] + nums[j];
+                            nums[j] = nums[i] - nums[j];
+                            nums[i] = nums[i] - nums[j];
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int i = length - 1; i > 0; i--)
+                {
+                    for (int j = i - 1; j >= 0; j--)
+                    {
+                        if (nums[i] > nums[j])
+                        {
+                            nums[i] = nums[i] + nums[j];
+                            nums[j] = nums[i] - nums[j];
+                            nums[i] = nums[i] - nums[j];
+                        }
                     }
                 }
             }
